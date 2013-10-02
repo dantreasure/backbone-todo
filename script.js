@@ -19,7 +19,6 @@ $(document).ready(function() {
 		render: function() {
 			var html = this.$el.html(this.template(this.model.toJSON()));
 			console.log(html);
-			$('.todos-list').append(html);
 		},
 		events: {
 			'click .toggle': 'clickToggle',
@@ -32,6 +31,18 @@ $(document).ready(function() {
 			this.model.destroy();
 		}
 	});
-	var tv = new TodoView({model: new TodoModel({title: 'Hi there'})});
-	tv.render();
+
+	$('#new-todo').bind('keypress', function(e) {
+		var code = e.keyCode || e.which;
+		if (code == 13) {
+			var tv = new TodoView({
+				model: new TodoModel({
+					title: $('#new-todo').val()
+				})
+			});
+			tv.render();
+			$('.todos-list').append(tv.$el);
+			$('#new-todo').val('');
+		}
+	})
 });
