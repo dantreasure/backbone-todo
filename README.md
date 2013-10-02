@@ -26,6 +26,8 @@ Build a functioning (albeit simple) MV* task list project using Backbonejs
 
 Once you've created the template, create the View itself.
 * Don't forget to specify the template using underscore's template function
+* Utilize the `tagName` and `className` backbone view properties to make sure the element appended to the `todos-list` is a list element
+  * Make sure `tagName` is 'li' and `className` is 'todo'
 * Make sure to create a render function that places the `model.toJSON()` into the template
 * Don't forget to make the use of `this.$el` when rendering
 
@@ -36,7 +38,8 @@ Once you've created the template, create the View itself.
 * Try adding multiple todos to see what happens
 
 ###4: Add the `completed` state
-* Think about how you could show the `completed` state in the template's checkbox using underscore's template language. If you need a hint, try here: http://stackoverflow.com/questions/7230470/how-to-use-if-statements-in-underscore-js-templates
+* You need to add a class of `checked` to the label to make the CSS work correctly
+* Think about how you could show the class when the `completed` state is true in the template's checkbox using underscore's template language. If you need a hint, try here: http://stackoverflow.com/questions/7230470/how-to-use-if-statements-in-underscore-js-templates
 * Test the completed state by adding new todos with the model's default value changed and see if the template reflects the change
 
 ##Steps (day two)
