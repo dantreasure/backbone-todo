@@ -54,6 +54,7 @@ Once you've created the template, create the View itself.
 ###3: Add a delete event
 * Similarly, add an event to delete the todo when the delete button is pressed
 * Use backbone's built-in view method of `remove` to force the removal of the view
+
 ###4: Refactor your code
 * Take a look at the following code:
 
@@ -64,6 +65,11 @@ Once you've created the template, create the View itself.
         },
  ```
 The `initialize` method belongs in the backbone View. The view listens for changes on its model to trigger certain behaviors. Think about how you could refactor your code to take advantage of this simpler (and more efficient) method.
+
+###5: Debug your code
+Watch what happens when you change the state of your task (complete/not complete). The items might be re-ordering themselves. Ask yourself:
+* Why are they re-ordering themselves? (think of what the 'complete' change does and what gets called as a result)
+* How could you refactor your code so that the tasks don't get re-inserted every time their state changes?
 
 ###5: (Black Diamond): Implement an 'edit' mode
 * When the user clicks on the label, make the field editable
