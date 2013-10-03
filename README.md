@@ -44,7 +44,11 @@ Once you've created the template, create the View itself.
 
 ##Steps (day two)
 ###1: Add a `toggle` method to your model that simply toggles the `completed` state 
-
+* Take a look at the `get` and `set` methods for a backbone Model: http://backbonejs.org/#Model-get
+  * These methods are used because Models have great support for binding/listening to property changes, which we'll use later
+  * What you really need to know for now is that anytime you want to check a property on a model or change it, you need to use either `get` (for reading) or `set` (for changing)
+* Your toggle method will be very simple: find out what the model's current `completed` state is and flip it.
+  
 ###2: Add an event for when the check is clicked
 * The handler should call the model's `toggle` method
 * The handler should also trigger a re-render of the view 
@@ -59,6 +63,7 @@ Once you've created the template, create the View itself.
 * Take a look at the following code:
 
 ```javascript
+        /* inside of the TodoView code */
         initialize: function () {
 	        this.listenTo(this.model, 'change', this.render);
 	        this.listenTo(this.model, 'destroy', this.remove);
