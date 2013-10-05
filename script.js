@@ -2,20 +2,17 @@
  * jQuery Setup
  */
 
-
 $(document).ready(function() {
-
-    
-var newTodoView = new todoView(
-	{ 
-		model: new todo({
-			title: 'Test'
-		})
-		
-	}
-);
-
-newTodoView.render();
+	$(document).keypress(function(e) {
+	    if(e.which == 13) {
+			var newTodoView = new todoView({ 
+				model: new todo({
+				title: $('#new-todo').val()
+				})
+			});
+			newTodoView.render();	
+	    }
+	});
 });
 
 /*
@@ -33,7 +30,7 @@ var todoView = Backbone.View.extend({
   el: '.todos-list',
   template: _.template($('#todo-template').html()),
   render: function() {
-    this.$el.append(this.template(this.model.toJSON()));
+    this.$el.prepend(this.template(this.model.toJSON()));
   }
 });
 
