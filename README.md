@@ -76,7 +76,7 @@ Watch what happens when you change the state of your task (complete/not complete
 * Why are they re-ordering themselves? (think of what the 'complete' change does and what gets called as a result)
 * How could you refactor your code so that the tasks don't get re-inserted every time their state changes?
 
-###5: (Black Diamond): Implement an 'edit' mode
+###6: (Black Diamond): Implement an 'edit' mode
 * When the user clicks on the label, make the field editable
   * Hint: have a hidden, absolutely positioned input that can be show/hidden when the view tells it to
   * When in 'edit' mode, the main label should be hidden and the input should show
